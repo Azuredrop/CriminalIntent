@@ -24,6 +24,10 @@ public class CrimeLab {
         mCrimes.add(c);
     }
 
+    public void deleteCrime(Crime c){
+        mCrimes.remove(c);
+    }
+
     public ArrayList<Crime> getCrimes() {
         return mCrimes;
     }
@@ -62,6 +66,7 @@ public class CrimeLab {
             mSerializer.saveCrimes(mCrimes);
             return true;
         } catch (Exception e) {
+            Toast.makeText(mAppContext, "saveCrimes error: " + e.getMessage(), Toast.LENGTH_LONG).show();
             return false;
         }
     }

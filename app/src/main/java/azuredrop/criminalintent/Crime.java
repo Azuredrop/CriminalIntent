@@ -35,7 +35,10 @@ public class Crime {
     }
 
     public Date getDate() {
-        return (mDate == null ? new Date() : mDate);
+        if (mDate == null) {
+            mDate = new Date();
+        }
+        return mDate;
     }
 
     public void setDate(Date date) {
