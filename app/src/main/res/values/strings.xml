@@ -12,4 +12,5 @@
     <string name="menu_hide_subtitle">Hide Subtitle</string>
     <string name="menu_subtitle">If you see something, say something.</string>
     <string name="menu_delete_crime">Delete</string>
+    <string name="take">Take!</string>
 </resources>
