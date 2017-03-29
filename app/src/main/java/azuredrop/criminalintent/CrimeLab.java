@@ -11,7 +11,7 @@ import java.util.UUID;
  */
 
 public class CrimeLab {
-    private static  final  String TAG = "CrimeLab";
+    private static final String TAG = "CrimeLab";
     private static final String FILENAME = "Crimes.json";
 
     private static CrimeLab sCrimeLab;
@@ -20,11 +20,11 @@ public class CrimeLab {
     private ArrayList<Crime> mCrimes;
     private CriminalIntentJSONSerializer mSerializer;
 
-    public void addCrime(Crime c){
+    public void addCrime(Crime c) {
         mCrimes.add(c);
     }
 
-    public void deleteCrime(Crime c){
+    public void deleteCrime(Crime c) {
         mCrimes.remove(c);
     }
 
