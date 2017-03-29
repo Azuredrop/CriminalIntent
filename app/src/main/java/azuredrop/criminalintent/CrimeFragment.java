@@ -2,6 +2,7 @@ package azuredrop.criminalintent;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -26,13 +27,14 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 /**
  * Created by Administrator on 2017/3/24.
  */
 
 public class CrimeFragment extends Fragment {
-    public static final String EXTRA_CRIME_ID = "azuredrop,criminalIntent.crime_id";
+    public static final String EXTRA_CRIME_ID = "azuredrop.criminalIntent.crime_id";
 
     private static final String DIALOG_DATE = "date";
     private static final int REQUEST_DATE = 0;
@@ -42,6 +44,7 @@ public class CrimeFragment extends Fragment {
     private EditText mTitleField;
     private Button mDateButton;
     private CheckBox mSolvedCheckBox;
+    private ImageButton mPhotoButton;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,6 +77,23 @@ public class CrimeFragment extends Fragment {
                     actionbar.setDisplayHomeAsUpEnabled(true);
                 }
             }
+        }
+
+        // Photo
+        mPhotoButton = (ImageButton)v.findViewById(R.id.crime_imageButton);
+        mPhotoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), CrimeCameraActivity.class);
+                startActivity(i);
+            }
+        });
+        // -> if camera is not available
+        PackageManager pm = getActivity().getPackageManager();
+        boolean hasACamera = pm.hasSystemFeature(PackageManager.FEATURE_CAMERA) ||
+                pm.hasSystemFeature(PackageManager.FEATURE_CAMERA_FRONT);
+        if (!hasACamera) {
+            mPhotoButton.setEnabled(false);
         }
 
         // Title
