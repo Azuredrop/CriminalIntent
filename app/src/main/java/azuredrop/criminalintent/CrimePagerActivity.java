@@ -16,9 +16,12 @@ import java.util.UUID;
  * Created by Administrator on 2017/3/25.
  */
 
-public class CrimePagerActivity extends AppCompatActivity {
+public class CrimePagerActivity extends AppCompatActivity
+    implements CrimeFragment.Callbacks{
     private ViewPager mViewPager;
     private ArrayList<Crime> mCrimes;
+
+    public void onCrimeUpdated(Crime crime){}
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
