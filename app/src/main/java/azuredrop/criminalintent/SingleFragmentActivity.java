@@ -12,7 +12,7 @@ import android.support.v7.app.AppCompatActivity;
  */
 
 public abstract class SingleFragmentActivity extends AppCompatActivity {
-    protected abstract Fragment createFrament();
+    protected abstract Fragment createFragment();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
         if (fragment == null) {
-            fragment = createFrament();
+            fragment = createFragment();
             fm.beginTransaction().add(R.id.fragmentContainer, fragment).commit();
         }
     }

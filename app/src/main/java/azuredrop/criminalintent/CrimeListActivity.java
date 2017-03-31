@@ -12,7 +12,7 @@ import android.support.v4.app.FragmentTransaction;
 public class CrimeListActivity extends SingleFragmentActivity
         implements  CrimeListFragment.Callbacks, CrimeFragment.Callbacks {
     @Override
-    protected Fragment createFrament() {
+    protected Fragment createFragment() {
         return new CrimeListFragment();
     }
 
